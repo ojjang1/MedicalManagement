@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.record.mapper.RecordMapper">
+
+	<select id="getList" resultType="com.record.domain.RecordVO">
+		<![CDATA[
+		SELECT * FROM tbl_record_board WHERE r_no > 0
+		]]>	
+	</select>
+	
+	<insert id="insertSelectKey" >
+		<selectKey keyProperty="r_no" order="BEFORE" resultType="int" >
+			SELECT seq_record_board.nextval FROM dual
+		</selectKey>
+		INSERT INTO tbl_record_board (r_no, hospital, department, sickness, kcd7, record, d_cost, phrmacy, medicine, m_cost) 
+		values ( #{r_no} , #{hospital} , #{department} , #{sickness} , #{kcd7} , #{record} ,  #{d_cost} , #{phrmacy} , #{medicine} , #{m_cost})
+	</insert>
+	
+	<select id="read" resultType="com.record.domain.RecordVO">
+		SELECT * FROM tbl_record_board
+		WHERE r_no = #{r_no} 
+	</select>
+	
+	<delete id="delete">
+		DELETE FROM tbl_record_board 
+		WHERE r_no = #{r_no}
+	</delete>
+	
+	<update id="update">
+		UPDATE tbl_record_board SET 
+		hospital = #{hospital} , 
+		department = #{department} , 
+		sickness = #{sickness} ,
+		kcd7 =  #{kcd7} , 
+		record = #{record} ,
+		d_cost =  #{d_cost} , 
+		phrmacy = #{phrmacy} , 
+		medicine = #{medicine} , 
+		m_cost = #{m_cost}
+		WHERE r_no = #{r_no}
+	</update>
+	
+</mapper>
