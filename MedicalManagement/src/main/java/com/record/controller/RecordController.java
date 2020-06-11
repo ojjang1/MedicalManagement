@@ -33,6 +33,13 @@ public class RecordController {
 		
 	}
 	
+	@GetMapping("/register")
+	public void register() {
+		
+		log.info("---- /regord/register GET ----");
+		
+	}
+	
 	@PostMapping("/register")
 	public String register(RecordVO record, RedirectAttributes rttr) {
 		
@@ -76,6 +83,11 @@ public class RecordController {
 		}
 		
 		return "redirect:/record/list" ;
+	}
+	
+	@GetMapping("/calender")
+	public void gocalender() {
+		
 	}
 	
 	

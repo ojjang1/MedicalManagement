@@ -82,10 +82,14 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
+                            <a href="/record/register"><i class="fa fa-book fa-fw"></i> 진료 기록 작성 </a>
+                        </li>
+                        
+                        <li>
                             <a href="/record/list"><i class="fa fa-table fa-fw"></i> 진료 기록 보기 </a>
                         </li>
                         <li>
-                            <a href="#"><i class="glyphicon-time"></i> 스케쥴 관리(예정) </a>
+                            <a href="/record/calender"><i class="fa fa-calendar fa-fw"></i> 스케쥴 관리(작업중) </a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-edit fa-fw"></i> 신청서 작성(예정)</a>
