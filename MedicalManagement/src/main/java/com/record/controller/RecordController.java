@@ -52,10 +52,10 @@ public class RecordController {
 		return "redirect:/record/list" ;
 	}
 	
-	@GetMapping("/get")
+	@GetMapping({"/get", "/modify" })
 	public void get(@RequestParam("r_no") int r_no, Model model) {
 		
-		log.info("--- /record/get ---" + r_no);
+		log.info("--- /record/get   or  /record/modify  GET ---" + r_no);
 		
 		model.addAttribute("record", service.get(r_no));
 		

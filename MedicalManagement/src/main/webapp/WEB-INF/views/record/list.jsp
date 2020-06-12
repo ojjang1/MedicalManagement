@@ -41,6 +41,8 @@
                                 			<td><c:out value="${record.phrmacy}" /></td>
                                 			<td><fmt:formatDate pattern="yyyy-MM-dd" value="${record.visitdate}" /></td>                                			
                                 			<td><c:out value="${record.pic}" /></td>
+                      
+                                			
                                 	</c:forEach>
                                 </tbody>
                                 
@@ -53,14 +55,14 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                                            <h4 class="modal-title" id="myModalLabel">결과 처리 확인</h4>
                                         </div>
                                         <div class="modal-body">
                                             처리가 완료되었습니다.
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            
                                         </div>
                                     </div>
                                     <!-- /.modal-content -->
@@ -92,12 +94,24 @@
 					return;
 				}
 				
-				if(parseInt(result) >0 {
+				if(parseInt(result) >0) {
 					$(".modal-body").html("게시글 " + parseInt(result) + "번이 등록되었습니다.");
 					
-					$("#myModal").modal("show");
 				}
+				
+				$("#myModal").modal("show");
+			}
+			
+				
+			$('#dataTables-example tbody tr').on("click" , function() {
+					var num = $(this).children().eq(0).text();
+					
+					console.log("클릭한 열의 r_no= " + num);
+					
+					self.location = "/record/get?r_no="+num ;
+					
 			});
+				
 			
 		});
 	
